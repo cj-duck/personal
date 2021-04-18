@@ -19,7 +19,7 @@
 
 </html>
 
-<body onload="typeWriter()" style="overflow: hidden;">
+<body onload="typeWriter()" id="mainBody" style="">
     <header class="header">
         <h1 id="landing_title"></h1>
         <span id="down" style="cursor: pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
@@ -30,8 +30,7 @@
         <div id="landing_text">
             <div class="row">
                 <img class="profile-image col-sm" src="images/profile.jpg" style="padding-left:0;padding-right:0">
-                <p class="col-sm"><i><span style="padding-bottom:0;" id="greeting">
-                            Good morning,</span><br>My name is Chris, I'm an IT technician based in Edinburgh, UK. I
+                <p class="col-sm"><i>My name is Chris, I'm an IT technician based in Edinburgh, UK. I
                         graduated with a
                         Bachelor of Engineering in Computing in 2020 and I currently work as a technician for a local
                         charity.
@@ -72,6 +71,37 @@
                 </ul>
             </div>
         </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">Timeline</h6>
+                            <div id="content">
+                                <ul class="timeline">
+                                    <li class="event" data-date="12:30 - 1:00pm">
+                                        <h3>Registration</h3>
+                                        <p>Get here on time, it's first come first serve. Be late, get turned away.</p>
+                                    </li>
+                                    <li class="event" data-date="2:30 - 4:00pm">
+                                        <h3>Opening Ceremony</h3>
+                                        <p>Get ready for an exciting event, this will kick off in amazing fashion with MOP &amp; Busta Rhymes as an opening show.</p>
+                                    </li>
+                                    <li class="event" data-date="5:00 - 8:00pm">
+                                        <h3>Main Event</h3>
+                                        <p>This is where it all goes down. You will compete head to head with your friends and rivals. Get ready!</p>
+                                    </li>
+                                    <li class="event" data-date="8:30 - 9:30pm">
+                                        <h3>Closing Ceremony</h3>
+                                        <p>See how is the victor and who are the losers. The big stage is where the winners bask in their own glory.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script type="text/javascript">
@@ -99,27 +129,27 @@
                 }, 1000);
                 setTimeout(function () {
                     document.getElementsByClassName('header')[0].remove();;
+                    document.getElementsById('mainBody').style.overflow = 'scroll';
                 }, 1000);
             });
 
         });
-
-        x = new Date().getHours;
-        if (0 <= x < 2) {
-            document.getElementById('greeting').innerHTML = 'Good Evening :)'
-        } else if (3 <= x < 11) {
-            document.getElementById('greeting').innerHTML = 'Good Morning :)'
-        } else if (12 <= x < 5) {
-            document.getElementById('greeting').innerHTML = 'Good Afternoon :)'
-        } else if (6 <= x <= 23) {
-            document.getElementById('greeting').innerHTML = 'Good Evening :)'
-        } else {
-            document.getElementById('greeting').innerHTML = 'Good day :)'
-        }
     </script>
     <script type="text/javascript">
         var i = 0;
         var txt = 'WELCOME';
+        x = new Date().getHours;
+        if (0 <= x < 2) {
+            txt = 'Good Evening :)'
+        } else if (3 <= x < 11) {
+            txt = 'Good Morning :)'
+        } else if (12 <= x < 5) {
+            txt = 'Good Afternoon :)'
+        } else if (6 <= x <= 23) {
+            txt = 'Good Evening :)'
+        } else {
+            txt = 'Good day :)'
+        }
         var speed = 200;
         function typeWriter() {
             if (i < txt.length) {
